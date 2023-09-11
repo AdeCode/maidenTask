@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="container">
+        <h1 data-testid="slackUserName">Ade</h1>
         <div class="img-div">
             <img alt="Ade" data-testid="slackDisplayImage" src="./images/pass.jpg"/>
         </div>
-        <h1 data-testid="slackUserName">Ade</h1>
         <h2 id="currentDayOfTheWeek" data-testid="currentDayOfTheWeek">Day: </h2>
         <h2 id="currentUTCTime" data-testid="currentUTCTime">Today: </h2>
         <h2 id="myTrack" data-testid="myTrack">Frontend Track</h2>
@@ -27,31 +27,15 @@
         let currentDate = document.getElementById('currentDayOfTheWeek')
         currentDate.textContent = getCurrentDate()
 
-        let day = new Date()
-        let h = day.getHours()
-        let m = day.getMinutes()
-        let s = day.getSeconds()
+        const currentTime = () => {
+            let day = new Date()
+       
+            let utcTime = document.getElementById("currentUTCTime");
 
-        let utcTime = document.getElementById("currentUTCTime");
+            utcTime.innerHTML = day.getTime()
+        }
+        setInterval(currentTime, 1000)
 
-        let when = 'am'
-        if(h > 12){
-            h=h-12
-            when = 'pm'
-        }
-        if(h<10){
-            h = "0" + h
-        }
-
-        if(m<10){
-            m = "0" + m
-        }
-        if(s<10){
-            s = "0"+s
-        }
-
-        let timer = h+":"+m+":"+s+" "+when
-        utcTime.innerHTML = timer
     </script>
 </body>
 </html>
