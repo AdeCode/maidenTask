@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" type="text/css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="img-div">
+            <img alt="Ade" id="slackDisplayImage" src="./images/pass.jpg"/>
+        </div>
+        <h1 id="slackUserName">Ade</h1>
+        <h2 id="currentDayOfTheWeek">Day: </h2>
+        <h2 id="currentUTCTime">Today: </h2>
+        <h2 id="myTrack">Frontend Track</h2>
+        <h2>
+            <a href="www.github.com">Github URL</a>
+        </h2>
+
+    </div>
+    <script type="text/javascript">
+        const getCurrentDate = () => {
+            const day = new Date().toLocaleDateString('en-us', { weekday:"long"}) 
+            return day
+        }
+        let currentDate = document.getElementById('currentDayOfTheWeek')
+        currentDate.textContent = getCurrentDate()
+        //utcTime.textContent = new Date().toISOString().split('.')[0]+'Z'
+
+        let day = new Date()
+        let h = day.getHours()
+        let m = day.getMinutes()
+        let s = day.getSeconds()
+
+        let utcTime = document.getElementById("currentUTCTime");
+
+        let when = 'am'
+        if(h > 12){
+            h=h-12
+            when = 'pm'
+        }
+        if(h<10){
+            h = "0" + h
+        }
+
+        if(m<10){
+            m = "0" + m
+        }
+        if(s<10){
+            s = "0"+s
+        }
+
+        let timer = h+":"+m+":"+s+" "+when
+        //utcTime.innerHTML = "2:2"
+        utcTime.innerHTML = timer
+    </script>
+</body>
+</html>
