@@ -10,15 +10,13 @@
 <body>
     <div class="container">
         <div class="img-div">
-            <img alt="Ade" id="slackDisplayImage" src="./images/pass.jpg"/>
+            <img alt="Ade" data-testid="slackDisplayImage" src="./images/pass.jpg"/>
         </div>
-        <h1 id="slackUserName">Ade</h1>
-        <h2 id="currentDayOfTheWeek">Day: </h2>
-        <h2 id="currentUTCTime">Today: </h2>
-        <h2 id="myTrack">Frontend Track</h2>
-        <h2>
-            <a href="www.github.com">Github URL</a>
-        </h2>
+        <h1 data-testid="slackUserName">Ade</h1>
+        <h2 id="currentDayOfTheWeek" data-testid="currentDayOfTheWeek">Day: </h2>
+        <h2 id="currentUTCTime" data-testid="currentUTCTime">Today: </h2>
+        <h2 id="myTrack" data-testid="myTrack">Frontend Track</h2>
+        <a data-testid=“githubURL” href="https://github.com/AdeCode/maidenTask">Github URL</a>
 
     </div>
     <script type="text/javascript">
@@ -28,7 +26,6 @@
         }
         let currentDate = document.getElementById('currentDayOfTheWeek')
         currentDate.textContent = getCurrentDate()
-        //utcTime.textContent = new Date().toISOString().split('.')[0]+'Z'
 
         let day = new Date()
         let h = day.getHours()
@@ -54,7 +51,6 @@
         }
 
         let timer = h+":"+m+":"+s+" "+when
-        //utcTime.innerHTML = "2:2"
         utcTime.innerHTML = timer
     </script>
 </body>
